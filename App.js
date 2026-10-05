@@ -12,7 +12,7 @@ const balanceText = document.getElementById('balance');
 const incomeText = document.getElementById('income');
 const expenseText = document.getElementById('expense');
 
-// Load saved transactions from LocalStorage, or start with an empty array
+// Load saved transactions from localStorage
 let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
 
 function saveTransactions() {
@@ -61,7 +61,7 @@ function createListItem(transaction) {
   const li = document.createElement('li');
   li.classList.add(transaction.type);
 
-  // textContent is used instead of innerHTML so user input can't be run as HTML
+  // textContent isn't inner HTML
   const info = document.createElement('div');
   const title = document.createElement('strong');
   title.textContent = transaction.description;
